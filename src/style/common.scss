@@ -1,0 +1,186 @@
+@import './variable.scss';
+page {
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	height: 100%;
+	background-color: $uni-bg-color-grey;
+	font-size: 28rpx;
+}
+.full-container {
+  min-height: 100%;
+  background-color: $uni-bg-color;
+}
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	color: transparent;
+}
+button::after {
+	border: none;
+}
+button {
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+  background-color: $uni-bg-color;
+	line-height: 1;
+}
+image {
+  display: block;
+  width: 100%;
+}
+/* 布局 对齐 */
+.flex {
+	display: flex;
+}
+.flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-middle {
+	align-items: center;
+}
+.align-end {
+	align-self: flex-end;
+}
+.shrink-0 {
+	flex-shrink: 0;
+}
+.overflow-h {
+	overflow: hidden;
+}
+@each $key, $value in (between: space-between, center: center, around: space-around, end: flex-end) {
+	.flex-#{$key} {
+		justify-content: $value;
+	}
+}
+@for $key from 1 through 4 {
+	.flex-#{$key} {
+		flex: $key;
+	}
+}
+
+@each $key in left, center, right, justify {
+	.text-#{$key} {
+		text-align: $key;
+	}
+}
+@each $key, $color in (primary: $uni-color-error, gray: $uni-text-color-grey, white: $uni-bg-color, weixin2: $uni-color-success) {
+	.#{$key}-color {
+		color: $color;
+	}
+	.bg-#{$key} {
+		background: $color;
+	}
+}
+@for $num from 1 through 5 {
+	@each $key, $value in (t: top, r: right, b: bottom, l: left) {
+		.m#{$key}-#{$num * 10} {
+			margin-#{$value}: $num * 10rpx;
+		}
+		.p#{$key}-#{$num * 10} {
+			padding-#{$value}: $num * 10rpx;
+		}
+	}
+}
+/* fs 16 到 36 */
+@for $fs from 8 through 18 {
+	.fs-lh-#{$fs * 2} {
+		font-size: $fs * 2rpx;
+
+		@extend .line-height;
+  }
+  .fs-#{$fs * 2} {
+    font-size: $fs * 2rpx;
+  }
+}
+.pd-30 {
+  padding: 30rpx;
+}
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.wb-ba {
+	word-break: break-all;
+}
+.line-height {
+	line-height: 1;
+}
+.font-bold {
+	font-weight: bold;
+}
+.line-through {
+	text-decoration: line-through;
+}
+.border-bottom {
+	border-bottom: 1rpx solid $uni-border-color;
+}
+.border-top {
+	border-top: 1rpx solid $uni-border-color;
+}
+.fixed-border-top {
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+
+	@extend .border-top;
+}
+/* 普通按钮 */
+.primary-btn {
+  height: 80rpx;
+
+  text-align: center;
+
+  color: #fff;
+  border: 1px solid $uni-color-error;
+  border-radius: 8rpx;
+  background: $uni-color-error;
+
+  line-height: 80rpx;
+  &.success-active {
+    border-color: $uni-color-success;
+    background: $uni-color-success;
+    color: #fff;
+  }
+  &.success-plain {
+    color: $uni-color-success;
+    border-color: $uni-color-success;
+    background: transparent;
+  }
+  &.disabled {
+    border-color: $uni-text-color-disable;
+    background: $uni-text-color-disable;
+  }
+  &.plain {
+    color: $uni-color-error;
+    border-color: $uni-color-error;
+    background-color: #fff;
+  }
+  &.black-plain {
+    color: #000;
+    border-color: #000;
+    background-color: #fff;
+  }
+  &.round {
+    border-radius: 44rpx;
+  }
+  &.btn-small {
+    font-size: 32rpx;
+  }
+  &.btn-large {
+    font-size: 36rpx;
+  }
+}
+.com-126 {
+	height: 126rpx;
+	box-sizing: border-box;
+}

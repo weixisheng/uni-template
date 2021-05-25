@@ -1,0 +1,44 @@
+@mixin wh($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+@mixin lh($height, $lheight: $height) {
+  height: $height;
+  line-height: $lheight;
+}
+@mixin whl($width, $height: $width, $lh: $height) {
+  width: $width;
+
+  @include lh($height, $lh);
+}
+@mixin h-cen {
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin v-cen {
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin abs-center() {
+  position: absolute;
+
+  @include h-cen;
+}
+@mixin abs-middle() {
+  position: absolute;
+
+  @include v-cen;
+}
+
+@mixin multi-ellipsis($line: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+
+  -webkit-line-clamp: $line;
+}
+
+@mixin round($r: 50%) {
+  border-radius: $r;
+}
