@@ -8,16 +8,13 @@
 </template>
 
 <script>
-import singleton from '@/common/singleton'
 export default {
   data() {
     return {
-      title: 'Home'
+      title: 'uni-template'
     }
   },
-  onLoad() {
-    // this.$store.dispatch('getUserInfo')
-  },
+  onLoad() {},
   methods: {}
 }
 </script>

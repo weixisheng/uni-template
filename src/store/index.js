@@ -18,7 +18,7 @@ const store = new Vuex.Store({
     getUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
         getVip().then(res => {
-          if (Vue.prototype.$ck(res)) {
+          if (Vue.prototype.$h.ck(res)) {
             commit('updateUser', {
               userInfo: res.return_data
             })
